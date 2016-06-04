@@ -28,6 +28,7 @@ public class Incident {
 	
 	public Incident(int num, String street, String city, String state, int severity, LocalDate date,
 			IncidentType type) {
+		// K added
 		this(new Location(num, street, city, state), severity, date, type);
 	}
 	

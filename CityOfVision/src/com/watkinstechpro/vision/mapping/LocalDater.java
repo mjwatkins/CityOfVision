@@ -9,15 +9,26 @@ public class LocalDater {
 	LocalTime time;
 	
 	public LocalDater(String date, String time){
-		getDate(date);
-		getTime(time);
+		retrieveDate(date);
+		retrieveTime(time);
 	}
 	
 	public LocalDater(String year, String month, String day){
-		getDate(year+"-"+month+"-"+day);
+		retrieveDate(year+"-"+month+"-"+day);
 	}
 	
-	private void getTime(String time){
+	public LocalDater(String dateAndTime){
+		this(dateAndTime.split("T")[0], null); // ignore time
+	}
+
+	public LocalDate getDate(){
+		return date;
+	}
+	
+	public LocalTime getTime(){
+		return time;
+	}
+	private void retrieveTime(String time){
 		String timeStr;
 		String hrs, minutes, seconds;
 		
@@ -39,7 +50,7 @@ public class LocalDater {
 		}
 	}
 	
-	private void getDate(String date) {
+	private void retrieveDate(String date) {
 		String dateStr;
 		int year, day;
 		Month month;
@@ -85,8 +96,10 @@ public class LocalDater {
 		return date.toString();
 	}
 	
-	public static void main(String[] args){
-		LocalDater ld = new LocalDater("2016","6","4");
-		System.out.println(ld);
-	}
+
+	
+//	public static void main(String[] args){
+//		LocalDater ld = new LocalDater("2016-06-04T12:30:00000.00Z");
+//		System.out.println(ld);
+//	}
 }

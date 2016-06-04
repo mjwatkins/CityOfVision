@@ -26,10 +26,10 @@ public class Incident {
 		this.type = type;
 	}
 	
-	public Incident(int num, String street, String city, String state, int severity, LocalDate date,
-			IncidentType type) {
+	public Incident(int num, String street, String city, String state, int severity, String dateStr,
+			String type) {
 		// K added
-		this(new Location(num, street, city, state), severity, date, type);
+		this(new Location(num, street, city, state), severity, new LocalDater(dateStr).getDate(), IncidentType.getIncidentType(type));
 	}
 	
 

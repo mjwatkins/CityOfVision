@@ -19,4 +19,8 @@ public enum IncidentType {
 		
 		return typeName; 
 	}
+	
+	public static IncidentType getIncidentType(String type){
+		return valueOf(type);
+	}
 }

@@ -79,9 +79,29 @@ public class HotSpot {
 	public void setRadius(double radius) {
 		this.radius = radius;
 	}
+
+	/**
+	 * @return the frequencyMap
+	 */
+	public HashMap<Location, Integer> getFrequencyMap() {
+		return frequencyMap;
+	}
+
+	/**
+	 * @param frequencyMap the frequencyMap to set
+	 */
+	public void setFrequencyMap(HashMap<Location, Integer> frequencyMap) {
+		this.frequencyMap = frequencyMap;
+	}
 	
 	
-	public List<Location>
+	public String toString() {
+		StringBuilder info = new StringBuilder(); 
+		info.append("Hot Spot, ");
+		info.app
+		return info; 
+		
+	}
 	
 	
 	

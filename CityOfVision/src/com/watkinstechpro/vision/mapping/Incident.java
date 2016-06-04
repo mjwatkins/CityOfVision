@@ -92,7 +92,11 @@ public class Incident {
 	
 	public String toString() {
 		StringBuilder info = new StringBuilder();
-		info.append(arg0)
+		info.append("Incident, "); 
+		info.append(this.loc.getLat() + ",");
+		info.append(this.loc.getLon() + ",");
+		info.append(IncidentType.toString(this.type)); 
+		return info.toString(); 
 	}
 	
 }

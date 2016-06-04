@@ -25,6 +25,12 @@ public class Incident {
 		this.date = date;
 		this.type = type;
 	}
+	
+	public Incident(int num, String street, String city, String state, int severity, LocalDate date,
+			IncidentType type) {
+		this(new Location(num, street, city, state), severity, date, type);
+	}
+	
 
 
 	/**

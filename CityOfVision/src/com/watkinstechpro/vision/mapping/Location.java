@@ -3,6 +3,15 @@
  */
 package com.watkinstechpro.vision.mapping;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
+
+import org.json.JSONObject;
+
 /**
  * @author kmjwatkins
  *
@@ -136,7 +145,45 @@ public class Location {
 	public static double[] convertAddressToLatLon(String address) {
 		double[] latlon = new double [2];
 		String baseUrl = "https://maps.googleapis.com/maps/api/geocode/json?address=";
+		String apiKey = "&key=AIzaSyCOjGi_6QfMOMkLo2uLlHzqb9dw7K0uhmo";
+		String encodedAddress = address.replace(" ","+"); 
+		URL webUrl = null; 
+		HttpURLConnection conn = null; 
 		
+		try {
+			webUrl = new URL(baseUrl + encodedAddress + apiKey);
+		} catch (MalformedURLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} 
+		
+		try {
+			conn = (HttpURLConnection) webUrl.openConnection();
+			conn.setRequestMethod("GET");
+	        conn.setRequestProperty("Accept", "application/json");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} 
+		
+		StringBuilder geoInfoString = new StringBuilder();
+		BufferedReader reader = new BufferedReader(new InputStreamReader(conn.getErrorStream()));
+		String data = null; 
+		
+		do {
+			try {
+				data = reader.readLine();
+				if (data != null) {
+					geoInfoString.append(data); 
+				}
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
+		}while (data != null);
+		
+		JSONObject jsonFile = new JSONObject(geoInfoString); 
 		return latlon; 
 		
 	}

@@ -184,6 +184,7 @@ public class Location {
 		}while (data != null);
 		
 		JSONObject jsonFile = new JSONObject(geoInfoString); 
+		
 		return latlon; 
 		
 	}

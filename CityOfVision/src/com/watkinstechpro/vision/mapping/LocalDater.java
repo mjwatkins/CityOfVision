@@ -1,13 +1,15 @@
 package com.watkinstechpro.vision.mapping;
 
 import java.time.LocalDate;
+import java.time.Month;
 
 public class LocalDater {
 	LocalDate date;
 	
 	public LocalDater(String date, String time){
 		String dateStr;
-		int year, month, day;
+		int year, day;
+		Month month;
 		
 		String timeStr;
 		String hrs, minutes, seconds;
@@ -26,6 +28,8 @@ public class LocalDater {
 				 year = Integer.parseInt(dateStrParts[0]);
 				 month = getMonth(dateStrParts[1]);
 				 day = Integer.parseInt(dateStrParts[2]);
+				 
+				 this.date = LocalDate.of(year, month, day);
 			}
 		}
 		
@@ -35,15 +39,16 @@ public class LocalDater {
 		
 	}
 	
-	private int getMonth(String regMonth){
+	private Month getMonth(String regMonth){
 		if(regMonth.startsWith("0")){ // Single Digit
 			regMonth = regMonth.substring(1);
 		}
 		
-		//int regMonthNum = Integer.parseInt(s)
+		int regMonthNum = Integer.parseInt(regMonth);
 		
-		return -1;
+		return Month.of(regMonthNum);
 	}
+	
 	private String[] splitDate(String dateOrTime){
 		if(dateOrTime == null) return null;
 		

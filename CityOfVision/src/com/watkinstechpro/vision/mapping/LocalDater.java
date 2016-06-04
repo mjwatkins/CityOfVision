@@ -17,6 +17,10 @@ public class LocalDater {
 		getDate(year+"-"+month+"-"+day);
 	}
 	
+	public LocalDater(String dateAndTime){
+		this(dateAndTime.split("T")[0], null); // ignore time
+	}
+
 	private void getTime(String time){
 		String timeStr;
 		String hrs, minutes, seconds;
@@ -85,8 +89,8 @@ public class LocalDater {
 		return date.toString();
 	}
 	
-	public static void main(String[] args){
-		LocalDater ld = new LocalDater("2016","6","4");
-		System.out.println(ld);
-	}
+//	public static void main(String[] args){
+//		LocalDater ld = new LocalDater("2016-06-04T12:30:00000.00Z");
+//		System.out.println(ld);
+//	}
 }

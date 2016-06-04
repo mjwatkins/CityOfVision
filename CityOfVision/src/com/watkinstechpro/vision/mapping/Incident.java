@@ -25,6 +25,13 @@ public class Incident {
 		this.date = date;
 		this.type = type;
 	}
+	
+	public Incident(int num, String street, String city, String state, int severity, LocalDate date,
+			IncidentType type) {
+		// K added
+		this(new Location(num, street, city, state), severity, date, type);
+	}
+	
 
 
 	/**
@@ -95,7 +102,7 @@ public class Incident {
 		info.append("Incident, "); 
 		info.append(this.loc.getLat() + ",");
 		info.append(this.loc.getLon() + ",");
-		info.append(IncidentType.toString(this.type)); 
+		info.append(IncidentType.toString(this.type) + "\n"); 
 		return info.toString(); 
 	}
 	

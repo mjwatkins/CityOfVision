@@ -94,12 +94,30 @@ public class HotSpot {
 		this.frequencyMap = frequencyMap;
 	}
 	
+	public void addLocation(Location loc) {
+		int count;
+		
+		if (this.frequencyMap.containsKey(loc)) {
+			count = this.frequencyMap.get(loc);
+			this.frequencyMap.put(loc, ++count);
+		} else {
+			this.frequencyMap.put(loc, 1); 
+		}
+	}
 	
 	public String toString() {
 		StringBuilder info = new StringBuilder(); 
 		info.append("Hot Spot, ");
-		info.app
-		return info; 
+		info.append(this.type + ","); 
+		info.append(this.latCenter + ",");
+		info.append(this.longCenter + "\n");
+		for (Location l : this.frequencyMap.keySet()) {
+			info.append("HSL , ");
+			info.append(l.getLat() + "," + l.getLon() + ",");
+			info.append(this.frequencyMap.get(l) + "\n");
+		}
+		info.append("HSEnd \n"); 
+		return info.toString(); 
 		
 	}
 	

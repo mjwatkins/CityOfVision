@@ -79,4 +79,14 @@ public class LocalDater {
 		dateOrTime = dateOrTime.toUpperCase();
 		return dateOrTime.split("T");
 	}
+	
+	public String toString(){
+		if (date == null) return null;
+		return date.toString();
+	}
+	
+	public static void main(String[] args){
+		LocalDater ld = new LocalDater("2016","6","4");
+		System.out.println(ld);
+	}
 }

@@ -14,7 +14,7 @@ public class LocalDater {
 	}
 	
 	public LocalDater(String year, String month, String day){
-		getDate(year+"-"+getMonth(month)+"-"+day);
+		getDate(year+"-"+month+"-"+day);
 	}
 	
 	private void getTime(String time){

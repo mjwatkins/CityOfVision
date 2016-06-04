@@ -84,4 +84,54 @@ public class Location {
 	public void determineLatLon() {
 		// add code for google request....
 	}
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#hashCode()
+	 */
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result
+				+ ((cityName == null) ? 0 : cityName.hashCode());
+		result = prime * result + ((state == null) ? 0 : state.hashCode());
+		result = prime * result
+				+ ((streetName == null) ? 0 : streetName.hashCode());
+		result = prime * result + streetNum;
+		return result;
+	}
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#equals(java.lang.Object)
+	 */
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (!(obj instanceof Location))
+			return false;
+		Location other = (Location) obj;
+		if (cityName == null) {
+			if (other.cityName != null)
+				return false;
+		} else if (!cityName.equals(other.cityName))
+			return false;
+		if (state == null) {
+			if (other.state != null)
+				return false;
+		} else if (!state.equals(other.state))
+			return false;
+		if (streetName == null) {
+			if (other.streetName != null)
+				return false;
+		} else if (!streetName.equals(other.streetName))
+			return false;
+		if (streetNum != other.streetNum)
+			return false;
+		return true;
+	}
+
+
 }

@@ -133,7 +133,12 @@ public class Location {
 		return true;
 	}
 
-
+	public static double[] convertAddressToLatLon(String address) {
+		double[] latlon = new double [2];
+		
+		return latlon; 
+		
+	}
 	
 	
 	

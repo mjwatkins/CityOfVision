@@ -135,6 +135,7 @@ public class Location {
 
 	public static double[] convertAddressToLatLon(String address) {
 		double[] latlon = new double [2];
+		String baseUrl = "https://maps.googleapis.com/maps/api/geocode/json?address=";
 		
 		return latlon; 
 		

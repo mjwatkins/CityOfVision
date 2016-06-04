@@ -82,6 +82,6 @@ public class Location {
 	}
 	
 	public void determineLatLon() {
-		// add code for google request...
+		// add code for google request....
 	}
 }
